@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "334021235373",
+    "project_id": "drive-clone-3034f",
+    "storage_bucket": "drive-clone-3034f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334021235373:android:a26a751599fad8035aac24",
+        "android_client_info": {
+          "package_name": "com.example.appgoogledrive.app_googledrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334021235373-ie76mvb5032n5kgdt0243hgt3f6ag1i4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZdgh7cN0iPDCTFjycIFF2dpAcf3LM7TY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334021235373-ie76mvb5032n5kgdt0243hgt3f6ag1i4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
