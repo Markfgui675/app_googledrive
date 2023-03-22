@@ -1,43 +1,79 @@
 import 'package:flutter/material.dart';
 
+import '../utils.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Padding(
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+            end: Alignment.topLeft,
+            colors: [
+          Colors.deepPurpleAccent,
+          Colors.purpleAccent]
+        )
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Column(
+          children: <Widget>[
+            Padding(
               padding: EdgeInsets.only(top: MediaQuery.of(context).viewInsets.top + 52),
-            child: Image(
-              height: 200,
-              width: 200,
-              fit: BoxFit.cover,
-              image: AssetImage('images/images/filemanager.png'),
+              child: Image(
+                height: 200,
+                width: 200,
+                fit: BoxFit.cover,
+                image: AssetImage('images/images/filemanager.png'),
+              ),
             ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(top: 30, right: 30, bottom: 35),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(45),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  spreadRadius: 5,
+            const Spacer(),
+            Container(
+                width: double.infinity,
+                margin: const EdgeInsets.only(left: 30, top: 30, right: 30, bottom: 35),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(45),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white,
+                        spreadRadius: 5,
+                      )
+                    ]
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(top: 25, bottom: 25),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Simplify your', style: textStyle(25, const Color(0xff635c9b), FontWeight.w700),),
+                      Text('filling system', style: textStyle(25, const Color(0xff635c9b), FontWeight.w700),),
+                      const SizedBox( height: 20,),
+                      Text('keep your files', style: textStyle(20, textColor, FontWeight.w700),),
+                      Text('organized more easily', style: textStyle(20, textColor, FontWeight.w700),),
+                      const SizedBox( height: 30,),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 1.7,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.deepOrangeAccent.withOpacity(0.8),
+                        ),
+                        child: Center(
+                          child: Text("Let's go", style: textStyle(23, Colors.white, FontWeight.w700),),
+                        ),
+                      )
+
+                    ],
+                  ),
                 )
-              ]
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.cente,
-              children: [
-                Text('Simplify your')
-              ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
