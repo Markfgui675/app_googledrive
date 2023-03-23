@@ -1,9 +1,12 @@
+import 'package:app_googledrive/controllers/authentication_controller.dart';
 import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';import 'package:get/get_core/src/get_main.dart';
 
 import '../utils.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  AuthController authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -56,15 +59,20 @@ class LoginScreen extends StatelessWidget {
                       Text('keep your files', style: textStyle(20, textColor, FontWeight.w700),),
                       Text('organized more easily', style: textStyle(20, textColor, FontWeight.w700),),
                       const SizedBox( height: 30,),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.7,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.deepOrangeAccent.withOpacity(0.8),
-                        ),
-                        child: Center(
-                          child: Text("Let's go", style: textStyle(23, Colors.white, FontWeight.w700),),
+                      InkWell(
+                        onTap: (){
+                          authController.login();
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 1.7,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.deepOrangeAccent.withOpacity(0.8),
+                          ),
+                          child: Center(
+                            child: Text("Let's go", style: textStyle(23, Colors.white, FontWeight.w700),),
+                          ),
                         ),
                       )
 

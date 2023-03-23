@@ -39,11 +39,11 @@ dependencies:
   google_fonts: ^4.0.3
   #eva_icons_flutter:
   get: 4.2.0
-  #google_sign_in:
-  #firebase_auth:
-  #cloud_firestore:
-  #firebase_core:
-  #fireabase_storage:
+  google_sign_in: ^6.0.2
+  firebase_auth: ^4.3.0
+  cloud_firestore: ^4.4.5
+  firebase_core: ^2.8.0
+  #fireabase_storage: ^3.0.2
   #file_picker:
   #mime:
   #path_provider:
