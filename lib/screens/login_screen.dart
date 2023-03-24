@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import '../utils.dart';
 
 class LoginScreen extends StatelessWidget {
-  AuthController authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox( height: 30,),
                       InkWell(
                         onTap: (){
-                          authController.login();
+                          Get.find<AuthController>().login();
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width / 1.7,
