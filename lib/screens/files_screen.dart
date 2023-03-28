@@ -1,13 +1,19 @@
+import 'package:app_googledrive/controllers/files_screen_controller.dart';
 import 'package:app_googledrive/utils.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../widgets/folder_section.dart';
 import '../widgets/recent_files.dart';
+import 'nav_screen.dart';
 
 class FilesScreen extends StatelessWidget {
+
+  TextEditingController _folderController = TextEditingController();
+  FilesScreenController filesScreenController = Get.put(FilesScreenController());
 
   openAddFolderDialog(BuildContext context){
     return showDialog(
@@ -17,6 +23,7 @@ class FilesScreen extends StatelessWidget {
             actionsPadding: const EdgeInsets.only(right: 20, bottom: 10),
             title: Text('New Folder', style: textStyle(17, Colors.black, FontWeight.w600),),
             content: TextFormField(
+              controller: _folderController,
               autofocus: true,
               style: textStyle(17, Colors.black, FontWeight.w600),
               decoration: InputDecoration(
@@ -35,7 +42,15 @@ class FilesScreen extends StatelessWidget {
                 child: Text('Cancel', style: textStyle(16, textColor, FontWeight.bold),),
               ),
               InkWell(
-                onTap: (){},
+                onTap: (){
+                  userCollection.doc(FirebaseAuth.instance.currentUser!.uid).collection('folders').add(
+                    {
+                      'name': _folderController.text,
+                      'time':DateTime.now()
+                    }
+                  );
+                  Get.back();
+                },
                 child: Text('Create', style: textStyle(16, textColor, FontWeight.bold),),
               ),
             ],
@@ -43,6 +58,10 @@ class FilesScreen extends StatelessWidget {
         }
     );
   }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {

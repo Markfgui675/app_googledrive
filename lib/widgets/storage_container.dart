@@ -48,7 +48,7 @@ class StorageContainer extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('19', style: textStyle(50, const Color(0xff635c9b), FontWeight.bold)),
+                      Text('33', style: textStyle(50, const Color(0xff635c9b), FontWeight.bold)),
                       Text('%', style: textStyle(17, const Color(0xff635c9b), FontWeight.bold)),
                     ],
                   ),
