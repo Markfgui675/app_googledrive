@@ -1,11 +1,49 @@
 import 'package:app_googledrive/utils.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../widgets/folder_section.dart';
 import '../widgets/recent_files.dart';
 
 class FilesScreen extends StatelessWidget {
+
+  openAddFolderDialog(BuildContext context){
+    return showDialog(
+        context: context,
+        builder: (context){
+          return AlertDialog(
+            actionsPadding: const EdgeInsets.only(right: 20, bottom: 10),
+            title: Text('New Folder', style: textStyle(17, Colors.black, FontWeight.w600),),
+            content: TextFormField(
+              autofocus: true,
+              style: textStyle(17, Colors.black, FontWeight.w600),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.grey[300],
+                hintText: 'Untitled Folder',
+                hintStyle: textStyle(16, Colors.grey, FontWeight.w500)
+              ),
+            ),
+            actions: [
+              InkWell(
+                onTap: (){
+                  Get.back();
+                },
+                child: Text('Cancel', style: textStyle(16, textColor, FontWeight.bold),),
+              ),
+              InkWell(
+                onTap: (){},
+                child: Text('Create', style: textStyle(16, textColor, FontWeight.bold),),
+              ),
+            ],
+          );
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -39,12 +77,17 @@ class FilesScreen extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Row(
-                                    children: [
-                                      const Icon(EvaIcons.folderAdd, color: Colors.grey, size: 32,),
-                                      const SizedBox(width: 5,),
-                                      Text('Folder', style: textStyle(20, Colors.black, FontWeight.w600),)
-                                    ],
+                                  InkWell(
+                                    onTap: (){
+                                      openAddFolderDialog(context);
+                                    },
+                                    child: Row(
+                                      children: [
+                                        const Icon(EvaIcons.folderAdd, color: Colors.grey, size: 32,),
+                                        const SizedBox(width: 5,),
+                                        Text('Folder', style: textStyle(20, Colors.black, FontWeight.w600),)
+                                      ],
+                                    ),
                                   ),
                                   Row(
                                     children: [
